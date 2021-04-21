@@ -1,2 +1,2 @@
 # despegarExamen
-Programa de alamcenaje de usuarios y prestamos
+Programa de almacenaje de usuarios y prestamos
