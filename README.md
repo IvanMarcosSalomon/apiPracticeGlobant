@@ -13,9 +13,8 @@ How to get it to work:
 1) Download the code as a zip or clone it to your local machine.
 2) Import the proyect as an Existing Maven Proyect by going to File - Import
 ![image](https://user-images.githubusercontent.com/49291080/115636317-12684a80-a2e4-11eb-844a-c42b81883b23.png)
-3) Import the proyect as an Existing Maven Proyect by going to File - Import
-![image](https://user-images.githubusercontent.com/49291080/115636361-2c099200-a2e4-11eb-8992-d442c2004a01.png)
 Select the Existing Maven Proyect option.
+![image](https://user-images.githubusercontent.com/49291080/115636361-2c099200-a2e4-11eb-8992-d442c2004a01.png)
 And browse to the folder where the proyect has been stored.
 3) Go to RestfulWebUserServicesApplication.java, open it, select the class name and run it as a Java
 Application.
