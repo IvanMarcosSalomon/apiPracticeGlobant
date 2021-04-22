@@ -3,14 +3,14 @@
 Important Links
 
 API Documentation:
-Swagger Json Format - http://localhost:8080/v2/api-docs
-Swagger UI - http://localhost:8080/swagger-ui/
+-Swagger Json Format - http://localhost:8080/v2/api-docs
+-Swagger UI - http://localhost:8080/swagger-ui/
 
 To check the database:
-H2 DB - http://localhost:8080/h2-console/
-url=jdbc:h2:mem:api_users
-username=user
-password=user
+-H2 DB - http://localhost:8080/h2-console/
+-url=jdbc:h2:mem:api_users
+-username=user
+-password=user
 
 How to get it to work:
 1) Download the code as a zip or clone it to your local machine.
