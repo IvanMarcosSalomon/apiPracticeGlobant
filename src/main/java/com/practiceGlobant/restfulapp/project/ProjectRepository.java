@@ -1,11 +1,11 @@
-package com.despegar.restfulapp.restfulwebservices.loan;
+package com.practiceGlobant.restfulapp.project;
 
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface LoanRepository extends PagingAndSortingRepository<Loan, Integer>{
+public interface ProjectRepository extends PagingAndSortingRepository<Project, Integer>{
 	
 	
-
+	
 }

@@ -1,4 +1,4 @@
-package com.despegar.restfulapp.restfulwebservices.exceptions;
+package com.practiceGlobant.restfulapp.exceptions;
 
 import java.util.Date;
 

@@ -8,11 +8,11 @@
 		<version>2.4.5</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.despegar.restfulapp</groupId>
+	<groupId>com.practiceGlobant.restfulapp</groupId>
 	<artifactId>restful-web-services</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>restful-web-services</name>
-	<description>Demo project for Spring Boot</description>
+	<name>practiceGlobantProject</name>
+	<description>Globant project for practice</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>

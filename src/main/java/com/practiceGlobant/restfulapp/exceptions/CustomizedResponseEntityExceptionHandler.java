@@ -1,4 +1,4 @@
-package com.despegar.restfulapp.restfulwebservices.exceptions;
+package com.practiceGlobant.restfulapp.exceptions;
 
 import java.util.Date;
 
@@ -20,14 +20,8 @@ public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExce
 		return new ResponseEntity(exceptionResponse, HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 	
-	@ExceptionHandler(UserNotFoundException.class)
-	public final ResponseEntity<Object> handleUserNotFoundException(UserNotFoundException ex, WebRequest request){
-		ExceptionResponse exceptionResponse = new ExceptionResponse(new Date(), ex.getMessage(), request.getDescription(false));
-		return new ResponseEntity(exceptionResponse, HttpStatus.NOT_FOUND);
-	}
-	
-	@ExceptionHandler(PageNotFoundException.class)
-	public final ResponseEntity<Object> PageNotFoundException(PageNotFoundException ex, WebRequest request){
+	@ExceptionHandler(ProjectNotFoundException.class)
+	public final ResponseEntity<Object> handleUserNotFoundException(ProjectNotFoundException ex, WebRequest request){
 		ExceptionResponse exceptionResponse = new ExceptionResponse(new Date(), ex.getMessage(), request.getDescription(false));
 		return new ResponseEntity(exceptionResponse, HttpStatus.NOT_FOUND);
 	}
