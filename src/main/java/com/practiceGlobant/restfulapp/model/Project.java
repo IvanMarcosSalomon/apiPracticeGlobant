@@ -1,4 +1,4 @@
-package com.practiceGlobant.restfulapp.project;
+package com.practiceGlobant.restfulapp.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
