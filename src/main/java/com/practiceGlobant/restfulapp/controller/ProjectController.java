@@ -17,9 +17,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.practiceGlobant.restfulapp.dto.ProjectDTO;
 import com.practiceGlobant.restfulapp.exceptions.ProjectNotFoundException;
 import com.practiceGlobant.restfulapp.model.Project;
 import com.practiceGlobant.restfulapp.repository.ProjectRepository;
+import com.practiceGlobant.restfulapp.service.ProjectService;
 
 import org.springframework.http.ResponseEntity;
 
@@ -27,22 +29,56 @@ import org.springframework.http.ResponseEntity;
 @RestController
 public class ProjectController {
 	
-	private ProjectRepository projectRepository;
+	private final ProjectService projectService;
 	
-	@Autowired
-	public ProjectController(ProjectRepository projectRepository) {
-		this.projectRepository = projectRepository;
+	//no es necesario el autorwired porque solo hay un constructor, a partir de spring 5 no es obligatorio siempre y cuando haya un solo constructor
+	public ProjectController(ProjectService projectService) {
+		this.projectService = projectService;
 	}
 	
-	@Autowired
-	public ProjectRepository getProjectRepository() {
-		return projectRepository;
-	}
-
-	@Autowired
-	public void setProjectRepository(ProjectRepository projectRepository) {
-		this.projectRepository = projectRepository;
+	@GetMapping("/projects")
+	public List<ProjectDTO> retrieveAllProjects(@RequestParam(required = false) String name) {
+		List<ProjectDTO> projects = projectService.findByName(name);
+		return projects;
 	}
 	
+	@GetMapping("/projects/{id}")
+	public Optional<ProjectDTO> retrieveProject(@PathVariable int id) {
+		Optional<ProjectDTO> project = projectService.findById(id);
+		return project;
+	}
 	
+	@PostMapping("/projects")
+	public ResponseEntity<Object> createProject(@RequestBody Project project) {
+		
+		List<Project> projects = projectService.findAll();
+		Integer lastProjectId = 0;
+		for(Project u:projects) {
+			lastProjectId = u.getId();
+		}
+		project.setId(lastProjectId+1);
+		Project savedProject = projectService.save(project);
+		URI location = ServletUriComponentsBuilder
+			.fromCurrentRequest()
+			.path("/{id}")
+			.buildAndExpand(savedProject.getId()).toUri();
+		return ResponseEntity.created(location).build();
+	}
+	/*
+	@PutMapping("/projects/{id}")
+	public Optional<Project> modifyProject(@PathVariable int id, @RequestBody Project newProject) {
+		Optional<Project> targetProject = Optional.of(retrieveProject(id));
+		return targetProject
+			      .map(project -> {
+			    	  project.setName(newProject.getName());
+			    	  project.setDescription(newProject.getDescription());
+			    	  return projectService.save(project);
+			      });
+	}
+	
+	@DeleteMapping("/projects/{id}")
+	public void deleteProject(@PathVariable int id) {
+		projectService.deleteById(id);
+	}
+	*/
 }
